@@ -34,8 +34,9 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "start_url": "/?utm_source=homescreen",
-  "background_color": "#222",
-  "theme_color": "#222",
+  "Scope": "/",
+  "start_url": "/index.html",
+  "background_color": "#5CB85C",
+  "theme_color": "#5CB85C",
   "display": "standalone"
 }

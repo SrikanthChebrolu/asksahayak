@@ -1,7 +1,7 @@
 import {
   EDITOR_PAGE_LOADED,
   EDITOR_PAGE_UNLOADED,
-  ARTICLE_SUBMITTED,
+  CAMPAIGN_SUBMITTED,
   ASYNC_START,
   ADD_TAG,
   REMOVE_TAG,
@@ -13,23 +13,24 @@ export default (state = {}, action) => {
     case EDITOR_PAGE_LOADED:
       return {
         ...state,
-        articleSlug: action.payload ? action.payload.article.slug : '',
-        title: action.payload ? action.payload.article.title : '',
-        description: action.payload ? action.payload.article.description : '',
-        body: action.payload ? action.payload.article.body : '',
+        campaignSlug: action.payload ? action.payload.campaign.slug : '',
+        title: action.payload ? action.payload.campaign.title : '',
+        description: action.payload ? action.payload.campaign.description : '',
+        body: action.payload ? action.payload.campaign.body : '',
+          amount: action.payload ? action.payload.campaign.amount : '',
         tagInput: '',
-        tagList: action.payload ? action.payload.article.tagList : []
+        tagList: action.payload ? action.payload.campaign.tagList : []
       };
     case EDITOR_PAGE_UNLOADED:
       return {};
-    case ARTICLE_SUBMITTED:
+    case CAMPAIGN_SUBMITTED:
       return {
         ...state,
         inProgress: null,
         errors: action.error ? action.payload.errors : null
       };
     case ASYNC_START:
-      if (action.subtype === ARTICLE_SUBMITTED) {
+      if (action.subtype === CAMPAIGN_SUBMITTED) {
         return { ...state, inProgress: true };
       }
       break;

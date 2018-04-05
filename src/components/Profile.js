@@ -1,4 +1,4 @@
-import ArticleList from './ArticleList';
+import CampaignList from './CampaignList';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import agent from '../agent';
@@ -56,7 +56,7 @@ const FollowUserButton = props => {
 };
 
 const mapStateToProps = state => ({
-  ...state.articleList,
+  ...state.campaignList,
   currentUser: state.common.currentUser,
   profile: state.profile
 });
@@ -78,7 +78,7 @@ class Profile extends React.Component {
   componentWillMount() {
     this.props.onLoad(Promise.all([
       agent.Profile.get(this.props.match.params.username),
-      agent.Articles.byAuthor(this.props.match.params.username)
+      agent.Campaigns.byAuthor(this.props.match.params.username)
     ]));
   }
 
@@ -93,7 +93,7 @@ class Profile extends React.Component {
           <Link
             className="nav-link active"
             to={`/@${this.props.profile.username}`}>
-            My Articles
+            My Campaigns
           </Link>
         </li>
 
@@ -101,7 +101,7 @@ class Profile extends React.Component {
           <Link
             className="nav-link"
             to={`/@${this.props.profile.username}/favorites`}>
-            Favorited Articles
+            Favorited Campaigns
           </Link>
         </li>
       </ul>
@@ -147,14 +147,14 @@ class Profile extends React.Component {
 
             <div className="col-xs-12 col-md-10 offset-md-1">
 
-              <div className="articles-toggle">
+              <div className="campaigns-toggle">
                 {this.renderTabs()}
               </div>
 
-              <ArticleList
+              <CampaignList
                 pager={this.props.pager}
-                articles={this.props.articles}
-                articlesCount={this.props.articlesCount}
+                campaigns={this.props.campaigns}
+                campaignsCount={this.props.campaignsCount}
                 state={this.props.currentPage} />
             </div>
 

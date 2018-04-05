@@ -9,7 +9,6 @@ import {
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../constants/actionTypes';
-import Checkout from '../Stripe/checkout';
 
 const Promise = global.Promise;
 
@@ -31,11 +30,11 @@ const mapDispatchToProps = dispatch => ({
 class Home extends React.Component {
   componentWillMount() {
     const tab = this.props.token ? 'feed' : 'all';
-    const articlesPromise = this.props.token ?
-      agent.Articles.feed :
-      agent.Articles.all;
+    const campaignsPromise = this.props.token ?
+      agent.Campaigns.feed :
+      agent.Campaigns.all;
 
-    this.props.onLoad(tab, articlesPromise, Promise.all([agent.Tags.getAll(), articlesPromise()]));
+    this.props.onLoad(tab, campaignsPromise, Promise.all([agent.Tags.getAll(), campaignsPromise()]));
   }
 
   componentWillUnmount() {
@@ -44,7 +43,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="home-page">
+      <div>
 
         <Banner token={this.props.token} appName={this.props.appName} />
 
@@ -65,13 +64,6 @@ class Home extends React.Component {
             </div>
 
           </div>
-          <p className="App-intro">
-            <Checkout
-                name={'The Road to learn React'}
-                description={'Open Source React Book'}
-                amount={1}
-            />
-          </p>
         </div>
 
       </div>

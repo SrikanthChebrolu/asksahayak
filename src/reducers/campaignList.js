@@ -1,6 +1,6 @@
 import {
-  ARTICLE_FAVORITED,
-  ARTICLE_UNFAVORITED,
+  CAMPAIGN_FAVORITED,
+  CAMPAIGN_UNFAVORITED,
   SET_PAGE,
   APPLY_TAG_FILTER,
   HOME_PAGE_LOADED,
@@ -14,34 +14,34 @@ import {
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case ARTICLE_FAVORITED:
-    case ARTICLE_UNFAVORITED:
+    case CAMPAIGN_FAVORITED:
+    case CAMPAIGN_UNFAVORITED:
       return {
         ...state,
-        articles: state.articles.map(article => {
-          if (article.slug === action.payload.article.slug) {
+        campaigns: state.campaigns.map(campaign => {
+          if (campaign.slug === action.payload.campaign.slug) {
             return {
-              ...article,
-              favorited: action.payload.article.favorited,
-              favoritesCount: action.payload.article.favoritesCount
+              ...campaign,
+              favorited: action.payload.campaign.favorited,
+              favoritesCount: action.payload.campaign.favoritesCount
             };
           }
-          return article;
+          return campaign;
         })
       };
     case SET_PAGE:
       return {
         ...state,
-        articles: action.payload.articles,
-        articlesCount: action.payload.articlesCount,
+        campaigns: action.payload.campaigns,
+        campaignsCount: action.payload.campaignsCount,
         currentPage: action.page
       };
     case APPLY_TAG_FILTER:
       return {
         ...state,
         pager: action.pager,
-        articles: action.payload.articles,
-        articlesCount: action.payload.articlesCount,
+        campaigns: action.payload.campaigns,
+        campaignsCount: action.payload.campaignsCount,
         tab: null,
         tag: action.tag,
         currentPage: 0
@@ -51,8 +51,8 @@ export default (state = {}, action) => {
         ...state,
         pager: action.pager,
         tags: action.payload[0].tags,
-        articles: action.payload[1].articles,
-        articlesCount: action.payload[1].articlesCount,
+        campaigns: action.payload[1].campaigns,
+        campaignsCount: action.payload[1].campaignsCount,
         currentPage: 0,
         tab: action.tab
       };
@@ -62,8 +62,8 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        articles: action.payload.articles,
-        articlesCount: action.payload.articlesCount,
+        campaigns: action.payload.campaigns,
+        campaignsCount: action.payload.campaignsCount,
         tab: action.tab,
         currentPage: 0,
         tag: null
@@ -73,8 +73,8 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        articles: action.payload[1].articles,
-        articlesCount: action.payload[1].articlesCount,
+        campaigns: action.payload[1].campaigns,
+        campaignsCount: action.payload[1].campaignsCount,
         currentPage: 0
       };
     case PROFILE_PAGE_UNLOADED:

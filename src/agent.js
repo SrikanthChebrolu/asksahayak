@@ -3,7 +3,7 @@ import _superagent from 'superagent';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'http://10.0.0.91:8000/api';
+const API_ROOT = 'http://10.0.0.92:8000/api';
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
@@ -42,39 +42,39 @@ const Tags = {
 };
 
 const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
-const omitSlug = article => Object.assign({}, article, { slug: undefined })
-const Articles = {
+const omitSlug = campaign => Object.assign({}, campaign, { slug: undefined })
+const Campaigns = {
   all: page =>
-    requests.get(`/articles?${limit(10, page)}`),
+    requests.get(`/campaigns?${limit(10, page)}`),
   byAuthor: (author, page) =>
-    requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
+    requests.get(`/campaigns?author=${encode(author)}&${limit(5, page)}`),
   byTag: (tag, page) =>
-    requests.get(`/articles?tag=${encode(tag)}&${limit(10, page)}`),
+    requests.get(`/campaigns?tag=${encode(tag)}&${limit(10, page)}`),
   del: slug =>
-    requests.del(`/articles/${slug}`),
+    requests.del(`/campaigns/${slug}`),
   favorite: slug =>
-    requests.post(`/articles/${slug}/favorite`),
+    requests.post(`/campaigns/${slug}/favorite`),
   favoritedBy: (author, page) =>
-    requests.get(`/articles?favorited=${encode(author)}&${limit(5, page)}`),
+    requests.get(`/campaigns?favorited=${encode(author)}&${limit(5, page)}`),
   feed: () =>
-    requests.get('/articles/feed?limit=10&offset=0'),
+    requests.get('/campaigns/feed?limit=10&offset=0'),
   get: slug =>
-    requests.get(`/articles/${slug}`),
+    requests.get(`/campaigns/${slug}`),
   unfavorite: slug =>
-    requests.del(`/articles/${slug}/favorite`),
-  update: article =>
-    requests.put(`/articles/${article.slug}`, { article: omitSlug(article) }),
-  create: article =>
-    requests.post('/articles', { article })
+    requests.del(`/campaigns/${slug}/favorite`),
+  update: campaign =>
+    requests.put(`/campaigns/${campaign.slug}`, { campaign: omitSlug(campaign) }),
+  create: campaign =>
+    requests.post('/campaigns', { campaign })
 };
 
 const Comments = {
   create: (slug, comment) =>
-    requests.post(`/articles/${slug}/comments`, { comment }),
+    requests.post(`/campaigns/${slug}/comments`, { comment }),
   delete: (slug, commentId) =>
-    requests.del(`/articles/${slug}/comments/${commentId}`),
-  forArticle: slug =>
-    requests.get(`/articles/${slug}/comments`)
+    requests.del(`/campaigns/${slug}/comments/${commentId}`),
+  forCampaign: slug =>
+    requests.get(`/campaigns/${slug}/comments`)
 };
 
 const Profile = {
@@ -87,7 +87,7 @@ const Profile = {
 };
 
 export default {
-  Articles,
+  Campaigns,
   Auth,
   Comments,
   Profile,

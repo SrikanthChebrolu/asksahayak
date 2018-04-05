@@ -11,8 +11,6 @@
     "compose": "^0.1.2",
     "history": "^4.6.3",
     "marked": "^0.3.6",
-    "material-ui": "^1.0.0-beta.37",
-    "material-ui-icons": "^1.0.0-beta.36",
     "prop-types": "^15.5.10",
     "react": "^15.5.0",
     "react-bootstrap": "^0.32.1",
@@ -25,6 +23,8 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.1",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.79.0",
     "superagent": "^2.3.0",
     "superagent-promise": "^1.1.0"
   },
