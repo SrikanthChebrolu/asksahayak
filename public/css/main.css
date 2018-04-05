@@ -4461,7 +4461,8 @@ a.bg-danger:focus, a.bg-danger:hover {
   float: left !important; }
 
 .pull-xs-right {
-  float: right !important; }
+  float: right !important;
+  padding-right: 1rem}
 
 .pull-xs-none {
   float: none !important; }
@@ -5346,12 +5347,3 @@ margin-left: 1rem}
   font-size: 0.6rem;
   margin-right: 5px;
   cursor: pointer; }
-
-.StripeCheckout {
-  background: linear-gradient(rgb(91, 184, 91), rgb(91, 184, 91)) !important;
-
-}
-
-.span {
-  background-image: linear-gradient(rgb(91, 184, 91), rgb(91, 184, 91) 85%, rgb(91, 184, 91)) !important;
-}

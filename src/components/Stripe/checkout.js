@@ -40,8 +40,8 @@ const Checkout = ({ name, description, amount }) =>
         stripeKey={STRIPE_PUBLISHABLE}
     >
         <button className="btn btn-primary">
-            {amount} $
-        </button>x
+           Donate {amount} $
+        </button>
     </StripeCheckout>
 
 export default Checkout;
