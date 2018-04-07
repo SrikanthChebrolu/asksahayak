@@ -106,7 +106,7 @@ class Editor extends React.Component {
                       <fieldset>
 
                         <fieldset className="form-group">
-                          <label for="inputEmail4">Amount</label>
+                          <label >Amount</label>
                           <input
                               className="form-control"
                               type="number"
@@ -116,7 +116,7 @@ class Editor extends React.Component {
                         </fieldset>
 
                         <fieldset className="form-group">
-                          <label for="inputEmail4">Campaign Title</label>
+                          <label >Campaign Title</label>
                           <input
                               className="form-control"
                               type="text"
@@ -126,7 +126,7 @@ class Editor extends React.Component {
                         </fieldset>
 
                         <fieldset className="form-group">
-                          <label for="inputEmail4">Description</label>
+                          <label >Description</label>
                           <input
                               className="form-control"
                               type="text"
@@ -136,7 +136,7 @@ class Editor extends React.Component {
                         </fieldset>
 
                         <fieldset className="form-group">
-                          <label for="inputEmail4">Full Story</label>
+                          <label>Full Story</label>
                           <textarea
                               className="form-control"
                               rows="6"
@@ -147,7 +147,7 @@ class Editor extends React.Component {
                         </fieldset>
 
                         <fieldset className="form-group">
-                          <label for="inputEmail4">Tags</label>
+                          <label >Tags</label>
                           <input
                               className="form-control"
                               type="text"

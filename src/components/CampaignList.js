@@ -5,7 +5,7 @@ import React from 'react';
 const CampaignList = props => {
   if (!props.campaigns) {
     return (
-      <div className="campaign-preview">Loading...</div>
+      <div >Loading...</div>
     );
   }
 

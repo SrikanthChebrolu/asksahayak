@@ -1,51 +1,54 @@
+import {
+    Button,
+    Icon,
+    Image,
+    Menu,
+    Dropdown
+} from 'semantic-ui-react'
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../public/images/asksahayak.png';
 
 const LoggedOutView = props => {
     if (!props.currentUser) {
         return (
-            <ul className="nav navbar-nav pull-xs-right">
-                <li className="nav-item">
-                    <Link to="/login" className="nav-link">
-                        Sign in
-                    </Link>
-                </li>
-
-                <li className="nav-item">
-                    <Link to="/register" className="nav-link">
-                        Sign up
-                    </Link>
-                </li>
-
-            </ul>
+            <Menu.Item position='right'><Link
+                to="/login">
+                <Button size='large'>
+                    Log in</Button></Link>
+                <Link
+                    to="/register"><Button size='large' style={{ marginLeft: '0.5em' }}> Sign Up</Button></Link>
+            </Menu.Item>
         );
     }
     return null;
 };
 
 const LoggedInView = props => {
-    if (props.currentUser) {
-        return (
-            <ul className="nav navbar-nav pull-xs-right">
 
-                <li className="nav-item">
-                    <a className="nav-link">
-                        <Link
-                            to={`/@${props.currentUser.username}`}>
-                            <img src={props.currentUser.image} className="user-pic" alt={props.currentUser.username} />
-                            {props.currentUser.username}
-                        </Link>
-                    </a> </li>
-                <li className="nav-item">
-                    <a className="nav-link"><Link to="/editor">
-                        <i className="ion-compose"></i>New Post
-                    </Link></a></li>
-                <li className="nav-item">
-                    <a className="nav-link"><Link to="/settings">
-                        <i className="ion-gear-a"></i> Settings
-                    </Link></a>
-                </li>
-            </ul>
+    if (props.currentUser) {
+        const trigger = (
+            <span>
+                <Image avatar src={props.currentUser.image} /> <strong>{props.currentUser.username}</strong>
+            </span>
+        )
+        return (
+            <Menu.Item position='right'>
+                <Dropdown trigger={trigger}  pointing='top left' icon='dropdown'>
+                    <Dropdown.Menu>
+                        <Dropdown.Item><Link to="/editor">
+                            <Icon name="signup"/>New Post
+                        </Link></Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Item >
+                            <Link to="/settings" >
+                                <Icon name="settings"/>Settings
+                            </Link>
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+
+                </Dropdown>
+            </Menu.Item>
         );
     }
 
@@ -55,18 +58,21 @@ const LoggedInView = props => {
 class Header extends React.Component {
     render() {
         return (
-            <nav className="navbar navbar-light">
-                <div className="container">
+            <Menu>
 
-                    <Link to="/" className="navbar-brand">
-                        {this.props.appName.toLowerCase()}
-                    </Link>
+                <Link to="/">
+                    <Image
+                        size='tiny'
+                        src={logo}
+                        style={{     padding: '10px', marginLeft:'20%'}}
+                    />
+                </Link>
 
-                    <LoggedOutView currentUser={this.props.currentUser} />
+                <LoggedOutView currentUser={this.props.currentUser} />
 
-                    <LoggedInView currentUser={this.props.currentUser} />
-                </div>
-            </nav>
+                <LoggedInView currentUser={this.props.currentUser} />
+
+            </Menu>
         );
     }
 }

@@ -24,7 +24,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.1",
     "semantic-ui-css": "^2.3.1",
-    "semantic-ui-react": "^0.79.0",
+    "semantic-ui-react": "^0.79.1",
     "superagent": "^2.3.0",
     "superagent-promise": "^1.1.0"
   },
