@@ -29,7 +29,7 @@ const LoggedInView = props => {
     if (props.currentUser) {
         const trigger = (
             <span>
-                <Image avatar src={props.currentUser.image} /> <strong>{props.currentUser.username}</strong>
+                <Image avatar src={props.currentUser.image} alt={props.currentUser.username}/> <strong>{props.currentUser.username}</strong>
             </span>
         )
         return (
@@ -64,7 +64,8 @@ class Header extends React.Component {
                     <Image
                         size='tiny'
                         src={logo}
-                        style={{     padding: '10px', marginLeft:'20%'}}
+                        alt="asksahayak"
+                        style={{padding: '10px', marginLeft:'20%'}}
                     />
                 </Link>
 

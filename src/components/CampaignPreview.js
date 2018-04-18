@@ -21,7 +21,6 @@ const mapDispatchToProps = dispatch => ({
 
 const campaignPreview = props => {
   const campaign = props.campaign;
-  console.log(campaign);
   const favoriteButtonClass = campaign.favorited ?
     FAVORITED_CLASS :
     NOT_FAVORITED_CLASS;
@@ -31,7 +30,6 @@ const campaignPreview = props => {
     if (campaign.favorited) {
       props.unfavorite(campaign.slug);
     } else {
-      console.log("Test:",campaign.slug);
       props.favorite(campaign.slug);
     }
   };

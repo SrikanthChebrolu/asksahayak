@@ -1,6 +1,6 @@
 {
-  "short_name": "Srikanth",
-  "name": "Srikanth Chebrolu",
+  "short_name": "asksahayak",
+  "name": "ask-sahayak",
   "icons": [{
     "src": "images/sri_48.png",
     "sizes": "48x48",
@@ -35,7 +35,7 @@
     "type": "image/png"
   }],
   "Scope": "/",
-  "start_url": "/index.html",
+  "start_url": "./?utm_source=web_app_manifest",
   "background_color": "#5CB85C",
   "theme_color": "#5CB85C",
   "display": "standalone"
